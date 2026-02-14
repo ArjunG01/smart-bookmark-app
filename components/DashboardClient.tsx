@@ -3,8 +3,8 @@
 import { useState } from 'react'
 import BookmarkList from '@/components/BookmarkList'
 import AddBookmarkForm from '@/components/AddBookmarkForm'
-import SignOutButton from '@/components/SignOutButton'
-import Link from 'next/link'
+import Navbar from '@/components/Navbar'
+import { createClient } from '@/lib/supabase/client'
 
 export default function DashboardClient({ userId, userEmail }: { userId: string, userEmail: string }) {
     const [refreshTrigger, setRefreshTrigger] = useState(0)
@@ -14,29 +14,25 @@ export default function DashboardClient({ userId, userEmail }: { userId: string,
         setRefreshTrigger(prev => prev + 1)
     }
 
+    const handleSignOut = async () => {
+        try {
+            const supabase = createClient()
+            await supabase.auth.signOut()
+            // Use window.location for a clean redirect after sign out
+            window.location.href = '/'
+        } catch (error) {
+            console.error('Sign out error:', error)
+            // Still redirect even if there's an error
+            window.location.href = '/'
+        }
+    }
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
             {/* Navbar */}
-            <nav className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 shadow-sm">
-                <div className="container mx-auto px-4 py-4">
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-4 animate-slide-in-left">
-                            <Link href="/" className="flex items-center gap-2 group">
-                                <span className="text-2xl group-hover:scale-110 transition-transform">📚</span>
-                                <h1 className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent group-hover:from-purple-600 group-hover:to-pink-600 transition-all duration-300 cursor-pointer">
-                                    Smart Bookmark
-                                </h1>
-                            </Link>
-                            <span className="text-sm text-gray-500 dark:text-gray-400 px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full">
-                                {userEmail}
-                            </span>
-                        </div>
-                        <div className="animate-fade-in">
-                            <SignOutButton />
-                        </div>
-                    </div>
-                </div>
-            </nav>
+            <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+                <Navbar showAuthButtons={false} userEmail={userEmail} onSignOut={handleSignOut} />
+            </div>
 
             {/* Main Content */}
             <main className="container mx-auto px-4 py-8">

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
+import Navbar from '@/components/Navbar'
 
 export default async function Home() {
     const supabase = await createClient()
@@ -12,6 +13,9 @@ export default async function Home() {
 
     return (
         <main className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 overflow-hidden">
+            {/* Navigation Bar */}
+            <Navbar showAuthButtons={true} />
+
             <div className="container mx-auto px-4 py-16">
                 <div className="max-w-4xl mx-auto text-center">
                     {/* Hero Section */}

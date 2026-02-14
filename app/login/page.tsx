@@ -1,7 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 import GoogleSignInButton from '@/components/GoogleSignInButton'
-import Link from 'next/link'
+import Navbar from '@/components/Navbar'
 
 export default async function LoginPage() {
     const supabase = await createClient()
@@ -12,7 +12,10 @@ export default async function LoginPage() {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-4 relative overflow-hidden">
+        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+            {/* Navigation Bar */}
+            <Navbar showAuthButtons={true} />
+
             {/* Animated Background Elements */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float"></div>
@@ -21,48 +24,30 @@ export default async function LoginPage() {
             </div>
 
             {/* Login Card */}
-            <div className="relative w-full max-w-md">
-                {/* Clickable Logo */}
-                <Link href="/" className="block mb-8 text-center group">
-                    <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                        <span className="text-3xl animate-pulse-slow">📚</span>
-                        <h1 className="text-3xl font-bold text-white group-hover:text-purple-300 transition-colors">
-                            Smart Bookmark
-                        </h1>
-                    </div>
-                </Link>
-
-                {/* Main Card */}
-                <div className="bg-white/10 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-white/20 animate-slide-up">
-                    <div className="text-center mb-8">
-                        <div className="inline-block p-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl mb-4 animate-float">
-                            <span className="text-5xl">🔐</span>
+            <div className="relative flex items-center justify-center min-h-[calc(100vh-80px)] p-4">
+                <div className="w-full max-w-md">
+                    {/* Main Card */}
+                    <div className="bg-white/10 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-white/20 animate-slide-up">
+                        <div className="text-center mb-8">
+                            <div className="inline-block p-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl mb-4 animate-float">
+                                <span className="text-5xl">🔐</span>
+                            </div>
+                            <h2 className="text-3xl font-bold text-white mb-2">
+                                Welcome Back
+                            </h2>
+                            <p className="text-gray-300">
+                                Sign in to manage your bookmarks
+                            </p>
                         </div>
-                        <h2 className="text-3xl font-bold text-white mb-2">
-                            Welcome Back
-                        </h2>
-                        <p className="text-gray-300">
-                            Sign in to manage your bookmarks
-                        </p>
+
+                        <GoogleSignInButton />
+
+                        <div className="mt-6 text-center">
+                            <p className="text-sm text-gray-400">
+                                Secure authentication powered by Supabase
+                            </p>
+                        </div>
                     </div>
-
-                    <GoogleSignInButton />
-
-                    <div className="mt-6 text-center">
-                        <p className="text-sm text-gray-400">
-                            Secure authentication powered by Supabase
-                        </p>
-                    </div>
-                </div>
-
-                {/* Bottom Link */}
-                <div className="mt-6 text-center">
-                    <Link
-                        href="/"
-                        className="text-white/70 hover:text-white transition-colors text-sm hover:underline"
-                    >
-                        ← Back to Home
-                    </Link>
                 </div>
             </div>
 
