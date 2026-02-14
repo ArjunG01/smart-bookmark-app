@@ -32,11 +32,11 @@ export default async function LoginPage() {
                             <div className="inline-block p-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl mb-4 animate-float">
                                 <span className="text-5xl">🔐</span>
                             </div>
-                            <h2 className="text-3xl font-bold text-white mb-2">
-                                Welcome Back
+                            <h2 className="text-4xl font-bold text-white mb-3">
+                                Sign In
                             </h2>
-                            <p className="text-gray-300">
-                                Sign in to manage your bookmarks
+                            <p className="text-gray-200 text-lg">
+                                Access your personal bookmark collection
                             </p>
                         </div>
 

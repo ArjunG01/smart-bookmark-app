@@ -68,7 +68,7 @@ export default function AddBookmarkForm({ userId, onSuccess }: { userId: string,
             <div className="space-y-2">
                 <label
                     htmlFor="title"
-                    className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                    className="block text-sm font-semibold text-gray-700 dark:text-gray-200"
                 >
                     Title
                 </label>
@@ -78,15 +78,15 @@ export default function AddBookmarkForm({ userId, onSuccess }: { userId: string,
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     required
-                    className="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:text-white transition-all duration-300 hover:border-purple-400"
-                    placeholder="My Awesome Website"
+                    className="w-full px-4 py-3 text-base bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-900 dark:text-white placeholder-gray-400 transition-all duration-300 hover:border-purple-400 shadow-sm"
+                    placeholder="Enter bookmark title"
                 />
             </div>
 
             <div className="space-y-2">
                 <label
                     htmlFor="url"
-                    className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                    className="block text-sm font-semibold text-gray-700 dark:text-gray-200"
                 >
                     URL
                 </label>
@@ -96,7 +96,7 @@ export default function AddBookmarkForm({ userId, onSuccess }: { userId: string,
                     value={url}
                     onChange={(e) => setUrl(e.target.value)}
                     required
-                    className="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:text-white transition-all duration-300 hover:border-purple-400"
+                    className="w-full px-4 py-3 text-base bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-900 dark:text-white placeholder-gray-400 transition-all duration-300 hover:border-purple-400 shadow-sm"
                     placeholder="https://example.com"
                 />
             </div>
@@ -104,7 +104,7 @@ export default function AddBookmarkForm({ userId, onSuccess }: { userId: string,
             <button
                 type="submit"
                 disabled={loading}
-                className="w-full px-4 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-lg hover:from-indigo-700 hover:to-purple-700 hover:scale-[1.02] hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                className="w-full px-6 py-4 text-lg bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl hover:from-indigo-700 hover:to-purple-700 hover:scale-[1.02] hover:shadow-2xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 shadow-lg"
             >
                 {loading ? (
                     <span className="flex items-center justify-center gap-2">
