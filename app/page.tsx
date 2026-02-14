@@ -12,67 +12,76 @@ export default async function Home() {
     }
 
     return (
-        <main className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 overflow-hidden">
+        <main className="min-h-screen bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700">
             {/* Navigation Bar */}
             <Navbar showAuthButtons={true} />
 
-            <div className="container mx-auto px-4 py-16">
-                <div className="max-w-4xl mx-auto text-center">
+            <div className="container mx-auto px-4 py-20">
+                <div className="max-w-5xl mx-auto">
                     {/* Hero Section */}
-                    <div className="mb-16 animate-fade-in">
-                        <div className="mb-6 text-8xl animate-float">📚</div>
-                        <h1 className="text-7xl font-bold text-white mb-6 animate-slide-up hover:scale-105 transition-transform duration-300 cursor-default">
-                            Smart Bookmark
+                    <div className="text-center mb-20 animate-fade-in">
+                        <div className="mb-8 text-9xl animate-float">📚</div>
+                        <h1 className="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight animate-slide-up">
+                            Smart Bookmark Manager
                         </h1>
-                        <p className="text-2xl text-white/90 mb-8 animate-slide-up" style={{ animationDelay: '0.1s' }}>
-                            Organize, manage, and access your bookmarks from anywhere
+                        <p className="text-xl md:text-2xl text-blue-100 mb-10 max-w-3xl mx-auto animate-slide-up" style={{ animationDelay: '0.1s' }}>
+                            Professional bookmark organization system. Secure, fast, and accessible from anywhere.
                         </p>
                         <Link
                             href="/login"
-                            className="inline-block px-8 py-4 bg-white text-purple-600 font-semibold rounded-full hover:bg-gray-100 hover:scale-110 transition-all duration-300 transform shadow-2xl hover:shadow-purple-500/50 animate-slide-up"
+                            className="inline-block px-10 py-5 bg-white text-indigo-700 font-bold text-lg rounded-lg hover:bg-blue-50 hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-blue-900/50 animate-slide-up"
                             style={{ animationDelay: '0.2s' }}
                         >
-                            Get Started
+                            Get Started →
                         </Link>
                     </div>
 
-                    {/* Features */}
-                    <div className="grid md:grid-cols-3 gap-8 mt-20">
-                        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 card-hover animate-slide-up" style={{ animationDelay: '0.3s' }}>
-                            <div className="text-5xl mb-4 animate-float">🔐</div>
-                            <h3 className="text-xl font-semibold text-white mb-2">
+                    {/* Features Grid */}
+                    <div className="grid md:grid-cols-3 gap-8 mt-24">
+                        {/* Feature 1 */}
+                        <div className="bg-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-slide-up" style={{ animationDelay: '0.3s' }}>
+                            <div className="w-16 h-16 bg-indigo-100 rounded-lg flex items-center justify-center mb-6">
+                                <span className="text-4xl">🔐</span>
+                            </div>
+                            <h3 className="text-2xl font-bold text-gray-900 mb-3">
                                 Secure Authentication
                             </h3>
-                            <p className="text-white/80">
-                                Sign in securely with your Google account
+                            <p className="text-gray-600 leading-relaxed">
+                                Enterprise-grade security with Google OAuth integration. Your data is protected with industry-standard encryption.
                             </p>
                         </div>
 
-                        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 card-hover animate-slide-up" style={{ animationDelay: '0.4s' }}>
-                            <div className="text-5xl mb-4 animate-float" style={{ animationDelay: '0.5s' }}>⚡</div>
-                            <h3 className="text-xl font-semibold text-white mb-2">
-                                Instant Updates
+                        {/* Feature 2 */}
+                        <div className="bg-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+                            <div className="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                                <span className="text-4xl">⚡</span>
+                            </div>
+                            <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                                Real-Time Sync
                             </h3>
-                            <p className="text-white/80">
-                                Your bookmarks update automatically without refresh
+                            <p className="text-gray-600 leading-relaxed">
+                                Instant synchronization across all your devices. Changes appear immediately without manual refresh.
                             </p>
                         </div>
 
-                        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 card-hover animate-slide-up" style={{ animationDelay: '0.5s' }}>
-                            <div className="text-5xl mb-4 animate-float" style={{ animationDelay: '1s' }}>🔒</div>
-                            <h3 className="text-xl font-semibold text-white mb-2">
+                        {/* Feature 3 */}
+                        <div className="bg-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-slide-up" style={{ animationDelay: '0.5s' }}>
+                            <div className="w-16 h-16 bg-pink-100 rounded-lg flex items-center justify-center mb-6">
+                                <span className="text-4xl">🔒</span>
+                            </div>
+                            <h3 className="text-2xl font-bold text-gray-900 mb-3">
                                 Private & Secure
                             </h3>
-                            <p className="text-white/80">
-                                Your bookmarks are private and secure with RLS
+                            <p className="text-gray-600 leading-relaxed">
+                                Your bookmarks are completely private. Row-level security ensures data isolation between users.
                             </p>
                         </div>
                     </div>
 
-                    {/* Additional Info */}
-                    <div className="mt-20 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-                        <p className="text-white/70 text-lg">
-                            Built with Next.js 14, Supabase, and Tailwind CSS
+                    {/* Tech Stack Section */}
+                    <div className="mt-20 text-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
+                        <p className="text-blue-100 text-lg font-medium">
+                            Built with Next.js 14 • Supabase • TypeScript • Tailwind CSS
                         </p>
                     </div>
                 </div>
