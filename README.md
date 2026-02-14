@@ -15,15 +15,15 @@ Users authenticate with Google, manage private bookmarks, and see instant update
 
 | Requirement | Status |
 |------------|--------|
-Google OAuth login | ✔ Completed |
-Add bookmarks | ✔ Completed |
-Delete bookmarks | ✔ Completed |
-Private per-user data | ✔ Completed |
-Real-time UI updates | ✔ Completed |
-Deployed on Vercel | ✔ Completed |
-README with problem-solving | ✔ Completed |
+| Google OAuth login | ✔ Completed |
+| Add bookmarks | ✔ Completed |
+| Delete bookmarks | ✔ Completed |
+| Private per-user data | ✔ Completed |
+| Real-time UI updates | ✔ Completed |
+| Deployed on Vercel | ✔ Completed |
+| README with problem-solving | ✔ Completed |
 
-All requirements fully implemented.
+All assignment requirements have been implemented successfully.
 
 ---
 
@@ -32,8 +32,8 @@ All requirements fully implemented.
 - 🔐 Google OAuth authentication (no passwords stored)
 - ➕ Add bookmarks (URL + title)
 - 🗑 Delete bookmarks instantly
-- 👤 Private data per user (RLS enforced)
-- ⚡ Auto-refresh after actions
+- 👤 Private per-user data (RLS enforced)
+- ⚡ Instant UI updates after actions
 - 🔄 Realtime sync with fallback reliability
 - 🎨 Modern responsive UI
 - 🌍 Production deployment on Vercel
@@ -71,11 +71,11 @@ User → Google Login → OAuth Callback → Supabase Session → Dashboard
 
 1. User clicks **Sign in with Google**
 2. Google redirects to `/auth/callback`
-3. Supabase exchanges auth code
+3. Supabase exchanges the auth code
 4. Session cookie stored securely
 5. User redirected to dashboard
 
-No passwords. OAuth-only secure login.
+OAuth-only authentication — no passwords stored.
 
 ---
 
@@ -90,7 +90,7 @@ Database policies enforce:
 ✔ Users only delete their own data  
 ✔ Cross-user access impossible  
 
-Security enforced at database level — not just frontend.
+Security is enforced at the database level.
 
 ---
 
@@ -110,14 +110,14 @@ cd smart-bookmark-app
 npm install
 ```
 
-Create `.env.local`
+Create `.env.local`:
 
 ```
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_key
 ```
 
-Run:
+Run development server:
 
 ```bash
 npm run dev
@@ -131,11 +131,11 @@ Open:
 
 ## 🌍 Production Deployment
 
-Live on Vercel:
+Live deployment:
 
 👉 https://smart-bookmark-app-eta-kohl.vercel.app
 
-Environment variables securely configured in Vercel dashboard.
+Environment variables are securely configured in the Vercel dashboard.
 
 ---
 
@@ -144,13 +144,13 @@ Environment variables securely configured in Vercel dashboard.
 ### 1️⃣ Supabase Realtime Timeout
 
 **Problem**  
-Realtime WebSocket occasionally failed → UI not updating.
+Realtime WebSocket occasionally failed, causing delayed UI updates.
 
 **Solution**
 
 - Implemented callback-based refresh fallback
-- Add/Delete always triggers guaranteed UI refresh
-- Realtime kept as enhancement
+- Add/Delete actions always trigger UI refresh
+- Realtime kept as optional enhancement
 
 **Result:** Reliable instant updates.
 
@@ -167,7 +167,7 @@ Session cookie not ready → redirected to homepage.
 await supabase.auth.exchangeCodeForSession(code)
 ```
 
-Redirect only after session confirmation.
+Redirect happens only after session confirmation.
 
 **Result:** Stable login on first attempt.
 
@@ -176,7 +176,7 @@ Redirect only after session confirmation.
 ### 3️⃣ OAuth Environment Mismatch
 
 **Problem**  
-Different redirect URIs needed for local & production.
+Different redirect URIs required for local and production.
 
 **Solution**
 
@@ -184,7 +184,7 @@ Configured:
 
 - localhost callback
 - Supabase callback
-- Vercel callback
+- Vercel production callback
 
 Fully documented.
 
@@ -192,18 +192,18 @@ Fully documented.
 
 ### 4️⃣ Row Level Security
 
-Strict RLS policies implemented to enforce per-user privacy at database level.
+Strict RLS policies implemented to enforce per-user privacy at the database level.
 
 ---
 
 ## 🧪 Testing Checklist
 
 - ✔ Google login works
-- ✔ Add/delete bookmarks instantly
+- ✔ Bookmarks add/delete instantly
 - ✔ Multiple tabs sync correctly
-- ✔ Different Google accounts stay isolated
+- ✔ Different Google accounts remain isolated
 
-Privacy verified with multiple accounts.
+Privacy verified using multiple accounts.
 
 ---
 
@@ -222,13 +222,13 @@ This project was built like a real production system:
 
 ## 🤖 Use of AI Tools
 
-ChatGPT was used as a **learning assistant** to:
+ChatGPT was used as a learning assistant to:
 
 - Understand Supabase configuration
 - Debug OAuth issues
 - Improve deployment reliability
 
-All architecture, coding, and testing decisions were implemented manually.
+All architecture, coding, and testing decisions were implemented manually to ensure understanding.
 
 AI accelerated learning — it did not replace development.
 
@@ -242,7 +242,7 @@ AI accelerated learning — it did not replace development.
 ✔ Private per-user data  
 ✔ Real-time updates  
 ✔ Vercel deployment  
-✔ README with solutions  
+✔ README with problem-solving  
 
 All challenge requirements satisfied.
 
