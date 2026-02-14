@@ -5,22 +5,23 @@ export async function GET(request: Request) {
   const requestUrl = new URL(request.url)
   const code = requestUrl.searchParams.get('code')
 
-  // If Google sent back an auth code
   if (code) {
     const supabase = await createClient()
 
-    // Exchange code for session (this sets cookies)
+    // exchange auth code → session cookie
     const { error } = await supabase.auth.exchangeCodeForSession(code)
 
     if (!error) {
-      // Redirect only AFTER session is stored
-      return NextResponse.redirect(
+      // force hard redirect so cookies are applied
+      const response = NextResponse.redirect(
         new URL('/dashboard', requestUrl.origin)
       )
+
+      response.headers.set('Cache-Control', 'no-store')
+      return response
     }
   }
 
-  // If something failed, go back to login
   return NextResponse.redirect(
     new URL('/login', requestUrl.origin)
   )
